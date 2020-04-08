@@ -7,6 +7,7 @@ module.exports  = {
         const ong_id = request.headers.authorization;
         console.log(title, description, value);
         //try {
+            // No projeto origina espera um array
             const id = await connection('incident').insert({
                 title,
                 description,
