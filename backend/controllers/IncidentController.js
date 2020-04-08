@@ -1,8 +1,23 @@
 const connection = require('../database/connection');
-const crypto = require('crypto');
-
 
 module.exports  = {
+
+    async create(request,response) {
+        const {title, description, value} = request.body;
+        const ong_id = request.headers.authorization;
+        console.log(title, description, value);
+        //try {
+            const id = await connection('incident').insert({
+                title,
+                description,
+                value,
+                ong_id
+            });
+            return response.json({id}); 
+        //} catch (error) {
+        //    response.status(401).json({ error: 'Error' });
+        //}
+    },
 
     async index(request, response) {
         const { page = 1 } = request.query;
@@ -38,20 +53,5 @@ module.exports  = {
         .where('id',id).delete();
         
         return response.status(204).send();
-    },
-
-    async create(request, response) {
-        const {title, description, value} = request.body;
-        const ong_id = request.headers.authorization;
-        //console.log(ong_id);
-
-        const [id] = await connection('incident').insert({
-            title,
-            description,
-            value,
-            ong_id,
-        });
-
-        return response.json({ id }); 
     }
-};
+}

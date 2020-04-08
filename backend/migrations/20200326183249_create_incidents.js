@@ -5,7 +5,7 @@ exports.up = function(knex) {
         table.increments('id').primary();
         table.string('title').notNullable();
         table.string('description').notNullable();
-        table.float('value').notNullable();
+        table.decimal('value').notNullable();
         
         table.string('ong_id').notNullable();
         
