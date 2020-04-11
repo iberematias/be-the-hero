@@ -1,7 +1,7 @@
 # Curso
 ![](https://github.com/iberematias/be-the-hero/blob/master/frontend/src/assets/bth.png)  
 
-Semena OmniStack de 23 a 29 de Março
+Semana OmniStack de 23 a 29 de Março
 Curso facilitado por Diego Fernandes, 
 [RocketSeat]
 (https://rocketseat.com.br).
